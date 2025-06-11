@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Para minha linda 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: purple;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .caixa {
+      border: 3px solid black;
+      border-radius: 5%;
+      padding: 30px;
+      background-color: white;
+      text-align: center;
+      position: absolute;
+      transition: 0.3s ease;
+    }
+
+    .pergunta {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .botoes {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: 2px solid black;
+      border-radius: 5%;
+      background-color: white;
+      cursor: pointer;
+    }
+
+    #final {
+      display: none;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+    }
+
+    #final img {
+      max-width: 500px;
+      border: 3px solid black;
+    }
+
+    #mensagem {
+      font-size: 20px;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="caixa" id="caixa">
+  <div class="pergunta" id="pergunta">Você me ama muito? (Não tenta colocar 'NÃO', você não vai conseguir!)</div>
+  <div class="botoes">
+    <button id="sim">SIM</button>
+    <button id="nao">NÃO</button>
+  </div>
+</div>
+
+<div id="final">
+  <img src="Eueizadora.jpg" alt="Nós dois">
+  <div id="mensagem">
+    <p>Oi meu amor, você sabe que eu não gosto de escrever cartas, mas sabe que sou bem criativo, então fiz a carta que você tanto gostaria de receber do meu jeito, assim todo mundo sai ganhando. Quero dizer que Eu te amo demais, e que voce é super importante pra mim, na verdade, é a pessoa mais importante pra mim, junto com o kalebinho, e eu te amo daqui até a lua e mesmo não sendo o melhor namorado e sendo chato as vezes, eu sempre vou te amar e querer o seu melhor, você é meu bem mais precioso e fiz esse site pra eternizar isso no lugar mais acessaado pelas pessoas e que provavemente nunca vai morrer, a Internet. Não sei até quando isso vai ficar online mas espero que fique por um bom tempo. O tempo suficiente pra demonstrar o quanto eu eu te amo!
+    <br>
+    <br>
+    Com amor:
+    <br>
+    Seu Neno💕</p>
+  </div>
+</div>
+
+<script>
+  const perguntas = [
+    "Você me ama muito? (Não tenta colocar não, você não vai conseguir!)",
+    "Você quer ficar comigo pra sempre mesmo eu sendo chato? (To falando sério, você não vai conseguir colocar 'NÃO'!)",
+    "Supondo que eu estivesse lutando contra um rinoceronte e só pudesse vencer se você me desse um milhão de beijos, você me daria um beijo? (Apenas coloque 'SIM' e deixa a magica acontecer bebe!)"
+  ];
+
+  let etapa = 0;
+  const caixa = document.getElementById("caixa");
+  const pergunta = document.getElementById("pergunta");
+  const btnSim = document.getElementById("sim");
+  const btnNao = document.getElementById("nao");
+  const final = document.getElementById("final");
+
+  btnNao.addEventListener("mouseenter", () => {
+    const x = Math.floor(Math.random() * (window.innerWidth - 300));
+    const y = Math.floor(Math.random() * (window.innerHeight - 200));
+    caixa.style.left = `${x}px`;
+    caixa.style.top = `${y}px`;
+  });
+
+  btnSim.addEventListener("click", () => {
+    etapa++;
+    if (etapa < perguntas.length) {
+      pergunta.innerText = perguntas[etapa];
+    } else {
+      caixa.style.display = "none";
+      final.style.display = "flex";
+    }
+  });
+
+  caixa.style.left = "50%";
+  caixa.style.top = "50%";
+  caixa.style.transform = "translate(-50%, -50%)";
+</script>
+
+</body>
+</html>
